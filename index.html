@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Lumora — Cinematic Movie Discovery</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap">
+<style>
+:root{--lv:#a28ef0;--lv2:#6a54d6;--ink:#241f3a;--mu:#5f5a7c;--g:linear-gradient(135deg,#b19df8,#85b3f7 55%,#86d9b8);--sh:0 12px 40px rgba(124,104,224,.16);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px)}
+*{box-sizing:border-box;margin:0}[hidden]{display:none!important}
+body{font:15px/1.6 Manrope,system-ui,sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(900px 500px at 8% -5%,#cfbffb,transparent 60%),radial-gradient(800px 500px at 100% 25%,#b9d3fa,transparent 60%),radial-gradient(700px 500px at 0 92%,#b5ead0,transparent 60%),linear-gradient(#f1e9dc,#e7e1f4);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:rgba(241,233,220,.75);backdrop-filter:blur(18px)}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.15}h2{font-size:28px}
+.w{max-width:1200px;margin:auto;padding:0 20px}section.w{margin-top:56px}
+.glass{background:rgba(255,255,255,.46);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.7);box-shadow:var(--sh)}
+.gb{border:1px solid transparent;background:linear-gradient(rgba(255,255,255,.56),rgba(255,255,255,.56)) padding-box,var(--g) border-box}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding-top:12px}
+.nav{display:flex;align-items:center;gap:16px;padding:10px 18px;border-radius:999px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px 'Playfair Display',serif;letter-spacing:.03em}
+.logo i{width:28px;height:28px;border-radius:9px;background:var(--g);box-shadow:0 0 18px var(--lv);transform:rotate(12deg)}
+.lk{display:flex;gap:4px}.lk a{padding:7px 14px;border-radius:99px;font-weight:600;color:var(--mu);white-space:nowrap;transition:.25s}.lk a:hover,.lk a.on{background:rgba(185,167,245,.25);color:var(--lv2)}
+.sr{margin-left:auto;position:relative}.sr input{width:220px;padding:10px 16px;border-radius:99px;border:1px solid #e3dcf7;background:rgba(255,255,255,.8);font:inherit;outline:0;transition:.25s}.sr input:focus{box-shadow:0 0 0 4px rgba(185,167,245,.3)}
+#sd{position:absolute;right:0;top:48px;width:300px;border-radius:20px;padding:8px}#sd a{display:flex;gap:12px;align-items:center;padding:8px;border-radius:14px}#sd a:hover{background:rgba(185,167,245,.2)}#sd small{display:block;color:var(--mu)}.no{padding:10px;color:var(--mu)}
+.mini{width:36px;height:54px;border-radius:8px;overflow:hidden;position:relative;flex:none}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:99px;font-weight:700;transition:.3s}.btn:hover{transform:translateY(-2px)}
+.pri{background:linear-gradient(135deg,#8f7cf0,#7aa7f5);color:#fff;box-shadow:0 8px 26px rgba(124,104,224,.42)}.sec{background:rgba(255,255,255,.75);border:1px solid #e3dcf7}
+.chip,.pill{display:inline-block;padding:3px 12px;border-radius:99px;font-size:12px;font-weight:700;background:rgba(185,167,245,.22);color:var(--lv2)}.pill{background:rgba(255,255,255,.8)}
+.meta{color:var(--mu);font-weight:600}.bt{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.hr{position:relative;overflow:hidden;border-radius:32px;min-height:540px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:24px;padding:52px;margin-top:22px}
+.bgx,.veil{position:absolute;inset:0}.veil{background:linear-gradient(90deg,rgba(238,230,246,.93),rgba(238,230,246,.5) 50%,transparent)}
+.hc,.hp{position:relative;z-index:1}.hc{animation:in .7s}.hc h1{font-size:clamp(38px,6vw,68px);margin:14px 0 8px}.ds{max-width:520px;margin-top:14px;color:#4a4566}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}@keyframes fl{50%{transform:rotate(4deg) translateY(-12px)}}
+.hp{justify-self:center;width:min(270px,100%);transform:rotate(4deg);animation:fl 6s ease-in-out infinite;filter:drop-shadow(0 30px 40px rgba(90,70,170,.35))}
+.orb{position:absolute;border-radius:50%;filter:blur(55px);opacity:.7}.o1{width:260px;height:260px;background:#c8b0ff;right:8%;top:-60px}.o2{width:240px;height:240px;background:#98e0c2;left:30%;bottom:-90px}
+.ths{display:flex;gap:10px;margin-top:28px}.th{width:44px;opacity:.6;border-radius:12px;transition:.3s}.th.on,.th:hover{opacity:1;transform:translateY(-4px);outline:2px solid #fff;box-shadow:0 0 0 4px var(--lv)}.th .pt,.mini .pt{display:none}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;flex-wrap:wrap}.sh span{color:var(--mu)}
+.row{display:flex;gap:20px;overflow-x:auto;padding:12px 4px 26px;scroll-snap-type:x mandatory}.row .card{flex:0 0 172px;scroll-snap-align:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:22px}
+.card{display:block}.card h3{font:700 15px Manrope,sans-serif;margin-top:12px}.card p{font-size:13px;color:var(--mu);margin:2px 0 6px}
+.pst{position:relative;aspect-ratio:2/3;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(90,70,170,.22);transition:.45s cubic-bezier(.2,.8,.2,1)}
+.art,.art svg{position:absolute;inset:0;width:100%;height:100%}
+.pt{position:absolute;left:10px;right:10px;bottom:14px;font:700 15px/1.15 'Playfair Display',serif;color:#fff;text-transform:uppercase;letter-spacing:.08em;text-align:center;text-shadow:0 2px 12px rgba(40,30,90,.55)}
+.rt{position:absolute;top:10px;right:10px;padding:2px 9px;border-radius:99px;font:700 12px Manrope;background:rgba(255,255,255,.8);z-index:2}
+.rk{position:absolute;top:6px;left:12px;z-index:2;font:800 30px 'Playfair Display';color:#fff;text-shadow:0 2px 10px rgba(60,40,140,.5)}
+.ov{position:absolute;inset:0;z-index:1;display:grid;place-items:center;background:linear-gradient(transparent 30%,rgba(90,70,190,.5));opacity:0;transition:.3s}
+.pb{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.9);color:var(--lv2);box-shadow:0 0 30px #fff}
+.card:hover .pst{transform:translateY(-8px) scale(1.02);box-shadow:0 24px 50px rgba(124,104,224,.4),0 0 0 2px #fff}.card:hover .ov{opacity:1}
+.fs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.f{padding:8px 18px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid #e3dcf7;font-weight:600;transition:.25s}.f.on{background:var(--g);color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(124,104,224,.3)}
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.gt{padding:24px 20px;border-radius:22px;text-align:left;border:1px solid #fff;box-shadow:var(--sh);transition:.3s}.gt:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(124,104,224,.28)}.gt b{display:block;font:700 20px 'Playfair Display',serif}.gt span{font-size:13px;color:var(--mu)}
+.dbd{position:relative;height:400px;padding-top:24px;overflow:hidden;margin-top:-62px}.dbd .w{position:relative;z-index:2;padding-top:90px}.dbd .veil{background:linear-gradient(transparent 40%,#ebe5f3)}
+.dg{display:grid;grid-template-columns:260px 1fr;gap:40px;margin-top:-170px;position:relative;z-index:3}.di h1{font-size:clamp(34px,5vw,56px);margin:14px 0 8px}.di .chip{margin-right:6px}
+.ad{display:grid;grid-template-columns:220px 1fr;gap:24px;margin-top:28px}.side{border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:6px;align-self:start;position:sticky;top:96px}.side b{font:800 18px 'Playfair Display';padding:6px 12px 12px}.side a{padding:10px 14px;border-radius:14px;color:var(--mu);font-weight:600;cursor:pointer;white-space:nowrap}.side a.on,.side a:hover{background:rgba(185,167,245,.25);color:var(--lv2)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-bottom:24px}.st{padding:20px;border-radius:22px;position:relative;overflow:hidden}.st small{color:var(--mu);font-weight:600}.st b{display:block;font:800 32px 'Playfair Display'}.st em{font-style:normal;font-size:12px;color:#2c9a72;font-weight:700}
+.sp{position:absolute;right:16px;bottom:16px;display:flex;gap:4px;align-items:flex-end}.sp i{width:7px;border-radius:4px;background:var(--g)}
+.panel{border-radius:26px;padding:26px;margin-bottom:24px}.panel h3{margin-bottom:18px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:16px}.fg>*{display:block;font-weight:700;font-size:13px;color:var(--mu)}.full{grid-column:1/-1}
+.fg input,.fg select,.fg textarea{width:100%;margin-top:6px;padding:12px 14px;border-radius:14px;border:1px solid #e3dcf7;background:rgba(255,255,255,.85);font:500 15px Manrope;color:var(--ink);outline:0}.fg input:focus,.fg textarea:focus{box-shadow:0 0 0 4px rgba(185,167,245,.3)}
+.yt{display:flex;align-items:center;gap:8px;position:relative}.yt span{position:absolute;left:14px;top:17px;color:#e86a8a;font-size:12px}.yt input{padding-left:38px;padding-right:96px}.yt em{position:absolute;right:14px;top:18px;font-style:normal;color:#2c9a72;font-size:12px;font-weight:700}
+.dz{margin-top:6px;border:2px dashed #cdbdf7;border-radius:20px;min-height:150px;display:grid;place-items:center;text-align:center;color:var(--mu);background:rgba(255,255,255,.5);cursor:pointer;transition:.3s}.dz:hover,.dz.ov2{background:rgba(185,167,245,.2);border-color:var(--lv2)}.dz b{font-size:26px;color:var(--lv2)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:620px}th{text-align:left;font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;padding:8px 10px}td{padding:10px;border-top:1px solid #eee8fa;vertical-align:middle}tr:hover td{background:rgba(185,167,245,.1)}
+.tn{display:flex;align-items:center;gap:12px;font-weight:700}.ok{background:#d8f5e8;color:#2c9a72}.dr{background:#ffe9d9;color:#c9763a}
+.ic{padding:6px 14px;border-radius:99px;font-weight:700;font-size:13px;margin-right:6px;background:rgba(185,167,245,.22);color:var(--lv2)}.ic.dl{background:#ffe0e6;color:#d1496a}
+footer{margin-top:80px;padding:0 20px 30px}.ft{max-width:1200px;margin:auto;border-radius:32px;padding:40px;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px}.ft h4{margin-bottom:10px}.ft a{display:block;color:var(--mu);padding:3px 0}.ft p{color:var(--mu);margin-top:10px;max-width:300px}.cp{grid-column:1/-1;border-top:1px solid #eee8fa;padding-top:18px;color:var(--mu);font-size:13px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;padding:12px 22px;border-radius:99px;z-index:50;transition:.4s;pointer-events:none;background:rgba(255,255,255,.92);box-shadow:var(--sh);font-weight:700;color:var(--lv2)}#toast.s{opacity:1;transform:translate(-50%,0)}
+.lk2{min-height:70vh;display:grid;place-items:center;padding:30px 20px}.lc{width:min(400px,100%);border-radius:28px;padding:36px 30px;text-align:center}.lc h2{margin:18px 0 6px}.lc p{color:var(--mu);margin-bottom:20px}.lc input{width:100%;padding:14px 18px;border-radius:99px;border:1px solid #d6cbf3;background:rgba(255,255,255,.85);font:500 15px Manrope,system-ui,sans-serif;outline:0;text-align:center;margin-bottom:14px}.lc input:focus{box-shadow:0 0 0 4px rgba(162,142,240,.35)}.lc .btn{width:100%;justify-content:center}.le{color:#d1496a;font-weight:700;min-height:22px;margin-top:12px;font-size:14px}.lg{width:64px;height:64px;border-radius:20px;background:var(--g);margin:auto;display:grid;place-items:center;font-size:28px;box-shadow:0 0 34px var(--lv)}.sk{animation:sk .4s}@keyframes sk{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.ad>*{min-width:0}.tw{max-width:100%}#pl{position:fixed;inset:0;z-index:60;background:rgba(36,31,58,.72);backdrop-filter:blur(8px);display:grid;place-items:center;padding:16px}.pbx{position:relative;width:min(960px,100%);aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.4)}.pbx iframe,.pbx video{width:100%;height:100%;border:0}.x{position:absolute;top:10px;right:10px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);font-weight:800}
+@media(max-width:820px){.hr{grid-template-columns:1fr;padding:28px;min-height:0}.hp{display:none}.dg{grid-template-columns:1fr;gap:20px}.dp{width:170px}.ad{grid-template-columns:1fr}.side{flex-direction:row;overflow-x:auto;position:static}.side b{display:none}.fg{grid-template-columns:1fr}.nav{border-radius:26px;flex-wrap:wrap}.lk{order:3;width:100%;overflow-x:auto}.sr input{width:150px}#sd{width:270px}.ft{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<header><div class="w"><nav class="nav glass gb"><a class="logo" href="#home"><i></i>Lumora</a>
+<div class="lk"><a href="#home">Home</a><a href="#trending">Trending</a><a href="#new">New</a><a href="#popular">Popular</a><a href="#genres">Genres</a><a href="#admin">Admin</a></div>
+<div class="sr"><input id="q" placeholder="Search movies…" autocomplete="off"><div id="sd" class="glass" hidden></div></div></nav></div></header>
+
+<main id="v-home"><div class="w"><section id="hero"></section></div>
+<section class="w" id="trending"><div class="sh"><h2>Trending Now</h2><span>Most watched this week</span></div><div class="row" id="tr"></div></section>
+<section class="w" id="new"><div class="sh"><h2>Recently Added</h2><span>Fresh on Lumora</span></div><div class="grid" id="nw"></div></section>
+<section class="w" id="popular"><div class="sh"><h2>Popular Movies</h2><span>Loved by everyone</span></div><div class="fs" id="fs"></div><div class="grid" id="pp"></div></section>
+<section class="w" id="genres"><div class="sh"><h2>Browse by Genre</h2><span>Find your mood</span></div><div class="gg" id="gg"></div></section></main>
+
+<main id="v-movie" hidden></main>
+<main id="v-lock" hidden><div class="lk2"><div class="lc glass gb" id="lc"><div class="lg">🔒</div><h2>Admin Access</h2><p>Enter the password to open Lumora Studio.</p><input id="pw" type="password" placeholder="Password" autocomplete="current-password"><button class="btn pri" onclick="unlock()">Unlock</button><div class="le" id="le"></div></div></div></main>
+
+<main id="v-admin" hidden><div class="w ad"><aside class="side glass gb"><b>Lumora Studio</b><a class="on">Dashboard</a><a>Movies</a><a onclick="$('add').scrollIntoView()">Add Movie</a><a>Genres</a><a>Settings</a><a onclick="lock()">Logout</a></aside>
+<div><div class="sh"><h2>Dashboard</h2><span>Add, edit and delete movies — saved live on your site</span></div><div class="stats" id="stats"></div>
+<div class="panel glass gb" id="add"><h3>Add Movie</h3><div class="fg">
+<label>Title<input id="ft" placeholder="e.g. Aurora Protocol"></label><label>Release Year<input id="fy" type="number" placeholder="2026"></label>
+<label>Language<select id="fl"><option>English<option>Hindi<option>Tamil<option>Telugu<option>Bengali<option>Punjabi<option>Marathi<option>Korean<option>Japanese<option>French<option>Spanish<option>Mandarin<option>Other</select></label><label>Genre<select id="gs"><option>Action<option>Adventure<option>Animation<option>Comedy<option>Crime<option>Documentary<option>Drama<option>Family<option>Fantasy<option>Horror<option>Mystery<option>Romance<option>Sci‑Fi<option>Thriller</select></label><label>Rating (0–10, optional)<input id="fr" type="number" step="0.1" min="0" max="10" placeholder="8.5"></label><label>Duration (optional)<input id="fdu" placeholder="2h 10m"></label>
+<label class="full">Description<textarea id="fx" rows="3" placeholder="Write a short synopsis…"></textarea></label>
+<label class="full">Movie / Video Link<div class="yt"><span>🔗</span><input id="yu" type="url" inputmode="url" placeholder="Paste any link — YouTube, Drive, Vimeo, .mp4…"><em id="yk"></em></div></label>
+<div class="full">Poster Upload<div class="dz" id="dz"><div id="dzi"><b>⬆</b><p>Drag &amp; drop a poster here<br><small>or click to browse · JPG, PNG · 2:3 ratio</small></p></div></div><input type="file" id="pf" accept="image/*" hidden></div></div>
+<div class="bt"><button class="btn pri" id="sv" onclick="save()">Save Movie</button><button class="btn sec" onclick="clr()">Cancel</button></div></div>
+<div class="panel glass gb"><h3>Manage Movies</h3><div class="tw"><table><thead><tr><th>Movie<th>Genre<th>Language<th>Year<th>Status<th>Actions<tbody id="tb"></tbody></table></div></div></div></div></main>
+
+<footer><div class="ft glass gb"><div><a class="logo" href="#home"><i></i>Lumora</a><p>A luminous home for cinema — discover, watch and fall in love with stories from everywhere.</p></div>
+<div><h4>Explore</h4><a href="#trending">Trending</a><a href="#new">New Releases</a><a href="#popular">Popular</a></div><div><h4>Company</h4><a href="#home">About</a><a href="#home">Careers</a><a href="#admin">Studio</a></div><div><h4>Support</h4><a href="#home">Help Centre</a><a href="#home">Privacy</a><a href="#home">Terms</a></div>
+<div class="cp">© 2026 Lumora. All rights reserved.</div></div></footer>
+<div id="pl" hidden></div><div id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const SEED=[["Aurora Protocol",2026,"English","Sci‑Fi",265,200,2,8.9,"2h 14m","A xenobiologist deciphers a signal woven into the northern lights — and learns it has been waiting for her."],
+["The Last Monsoon",2025,"Hindi","Drama",330,25,3,8.4,"2h 31m","Three generations of a coastal family gather for one final storm season and the secrets it washes ashore."],
+["Velvet Horizon",2026,"French","Romance",290,340,5,8.1,"1h 52m","Two strangers swap letters across a dozen cities, never quite arriving in the same place at the same time."],
+["Ember & Ash",2025,"English","Fantasy",20,300,0,8.7,"2h 20m","When the last dragon’s flame dims, an apprentice cartographer must map a kingdom that is quietly forgetting itself."],
+["Midnight Tangerine",2026,"Korean","Thriller",190,260,1,8.3,"1h 58m","A night-shift pharmacist notices the same stranger every dawn, and one prescription unravels a city."],
+["Saffron Skies",2024,"Hindi","Adventure",35,330,5,7.9,"2h 08m","A runaway kite-maker and a retired pilot race a monsoon front across the desert to reach a festival."],
+["Glass Cathedral",2025,"English","Mystery",230,170,4,8.2,"2h 03m","A restorer finds a hidden message inside a stained-glass window — and someone who needs it to stay hidden."],
+["Tide of Silver",2026,"Japanese","Animation",170,280,3,9.0,"1h 47m","A lighthouse keeper’s daughter befriends a sea spirit who trades in forgotten lullabies."],
+["Paper Lanterns",2024,"Mandarin","Drama",340,45,2,8.0,"2h 05m","One night, one river, a thousand lanterns — and the quiet reunion of two estranged sisters."],
+["Neon Sparrow",2026,"English","Action",300,190,1,8.5,"2h 11m","A retired courier takes one last run through a rain-lit megacity with a package that can’t be opened."]
+].map(([t,y,l,g,a,b,k,r,d,s],n)=>({id:9e5+n,t,y,l,g,a,b,k,r,d,s}));
+let D=SEED;
+const K=['<circle cx="100" cy="95" r="46" fill="#fff" opacity=".55"/><path d="M0 300V210l55-60 45 45 50-70 50 60v115z" fill="#fff" opacity=".28"/><path d="M0 300V240l70-40 60 30 70-45v115z" fill="#fff" opacity=".35"/>',
+'<circle cx="140" cy="80" r="30" fill="#fff" opacity=".5"/><path d="M0 300V190h22v-30h24v50h20v-80h28v60h22v-40h26v70h18v-20h20v120z" fill="#fff" opacity=".35"/>',
+'<g fill="none" stroke="#fff" opacity=".55"><circle cx="100" cy="130" r="30"/><circle cx="100" cy="130" r="55"/><circle cx="100" cy="130" r="80"/></g><circle cx="100" cy="130" r="12" fill="#fff" opacity=".85"/>',
+'<circle cx="70" cy="100" r="34" fill="#fff" opacity=".5"/><path d="M0 200q50-30 100 0t100 0v100H0z" fill="#fff" opacity=".3"/><path d="M0 245q50-30 100 0t100 0v55H0z" fill="#fff" opacity=".3"/>',
+'<circle cx="100" cy="95" r="50" fill="#fff" opacity=".4"/><ellipse cx="100" cy="150" rx="14" ry="16" fill="#2a2540" opacity=".5"/><path d="M60 300l10-110q30-26 60 0l10 110z" fill="#2a2540" opacity=".45"/>',
+'<circle cx="100" cy="110" r="40" fill="#fff" opacity=".6"/><path d="M0 300V230q60-50 110-10t90-20v100z" fill="#fff" opacity=".3"/>'];
+const hs=t=>[...t].reduce((x,c)=>(x*31+c.charCodeAt(0))>>>0,7);
+const art=m=>{if(m.p)return `<div class="art"><img src="${m.p}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>`;const h=hs(m.t),a=m.a??h%360,b=m.b??(h>>3)%360,k=m.k??h%6;return `<div class="art" style="background:linear-gradient(160deg,hsl(${a} 74% 74%),hsl(${b} 70% 62%))"><svg viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice">${K[k]}</svg></div>`};
+const pst=m=>`<div class="pst">${art(m)}${m.p?'':`<span class="pt">${m.t}</span>`}</div>`;
+const card=(i,n)=>{const m=D[i];return `<a class="card" href="#movie-${D[i].id}"><div class="pst">${art(m)}${n!=null?`<b class="rk">${n+1}</b>`:''}${m.r?`<span class="rt">★ ${m.r}</span>`:''}${m.p?'':`<span class="pt">${m.t}</span>`}<div class="ov"><span class="pb">▶</span></div></div><h3>${m.t}</h3><p>${m.y} · ${m.l}</p><span class="chip">${m.g}</span></a>`};
+let ix=[],G=[],F='All';
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('s');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('s'),2400)}
+function watch(i){const m=D[i],v=(m&&m.v||'').trim();if(!v){toast('No video link added yet');return}let u;try{u=new URL(/^https?:\/\//i.test(v)?v:'https://'+v)}catch(e){toast('Invalid link');return}
+const h=u.hostname.replace(/^www\./,''),p=u.pathname,y=h=='youtu.be'?p.slice(1):/youtube\.com$/.test(h)?(u.searchParams.get('v')||(p.match(/\/(?:embed|shorts|live)\/([\w-]+)/)||[])[1]):'',f='allow="autoplay;fullscreen" allowfullscreen';let e;
+if(y)e=`<iframe src="https://www.youtube.com/embed/${y}?autoplay=1&rel=0" ${f}></iframe>`;
+else if(h.includes('vimeo.com')&&/\d+/.test(p))e=`<iframe src="https://player.vimeo.com/video/${p.match(/\d+/)[0]}?autoplay=1" ${f}></iframe>`;
+else if(h=='drive.google.com'&&/\/d\/([\w-]+)/.test(p))e=`<iframe src="https://drive.google.com/file/d/${p.match(/\/d\/([\w-]+)/)[1]}/preview" ${f}></iframe>`;
+else if(/\.(mp4|webm|mov|m4v|ogv)$/i.test(p))e=`<video src="${u.href}" controls autoplay playsinline></video>`;
+else{open(u.href,'_blank','noopener');return}
+$('pl').innerHTML=`<div class="pbx"><button class="x" onclick="stopv()">✕</button>${e}</div>`;$('pl').hidden=false}
+function stopv(){$('pl').innerHTML='';$('pl').hidden=true}
+
+let HF=[0];
+function hero(n){const i=HF[n],m=D[i];$('hero').innerHTML=`<div class="hr glass gb"><div class="bgx">${art(m)}</div><div class="veil"></div><i class="orb o1"></i><i class="orb o2"></i><div class="hc"><span class="pill">✦ Featured · ${m.g}</span><h1>${m.t}</h1><p class="meta">${[m.r&&'★ '+m.r,m.y,m.l,m.d].filter(Boolean).join(' · ')}</p><p class="ds">${m.s}</p><div class="bt"><button class="btn pri" onclick="watch(${i})">▶ Watch Now</button><a class="btn sec" href="#movie-${D[i].id}">More Info</a></div><div class="ths">${HF.map((j,k)=>`<button class="th${k==n?' on':''}" onclick="hero(${k})">${pst(D[j])}</button>`).join('')}</div></div><div class="hp">${pst(m)}</div></div>`}
+function pop(){$('fs').innerHTML=['All',...G].map(g=>`<button class="f${g==F?' on':''}" onclick="flt('${g}')">${g}</button>`).join('');$('pp').innerHTML=ix.filter(i=>F=='All'||D[i].g==F).sort((a,b)=>D[b].r-D[a].r).map(i=>card(i)).join('')}
+function flt(g){F=g;pop()}
+function movie(i){const m=D[i],rel=ix.filter(j=>j!=i).sort((a,b)=>(D[b].g==m.g)-(D[a].g==m.g)||D[b].r-D[a].r).slice(0,6);
+$('v-movie').innerHTML=`<section class="dbd"><div class="bgx">${art(m)}</div><div class="veil"></div><div class="w"><a class="btn sec" href="#home">← Back</a></div></section>
+<div class="w dg"><div class="dp">${pst(m)}</div><div class="di"><span class="chip">${m.g}</span><span class="chip">${m.l}</span><span class="chip">${m.y}</span><h1>${m.t}</h1><p class="meta">${[m.r&&'★ '+m.r,m.d].filter(Boolean).join(' · ')}</p><p class="ds" style="max-width:640px;font-size:17px">${m.s}</p><div class="bt"><button class="btn pri" onclick="watch(${i})">▶ Watch Now</button></div></div></div>
+<section class="w"><div class="sh"><h2>Related Movies</h2><span>You may also love</span></div><div class="grid">${rel.map(j=>card(j)).join('')}</div></section>`}
+function route(){const h=location.hash.slice(1)||'home',mm=/^movie-(\d+)$/.exec(h),ad=h=='admin';
+$('v-home').hidden=!!mm||ad;$('v-movie').hidden=!mm;$('v-admin').hidden=!(ad&&A);$('v-lock').hidden=!(ad&&!A);if(ad&&!A)setTimeout(()=>$('pw').focus(),60);
+if(mm){const j=D.findIndex(m=>m.id==mm[1]);if(j>=0)movie(j)}
+document.querySelectorAll('.lk a').forEach(a=>a.classList.toggle('on',a.hash=='#'+h));
+const t=$(h);if(t&&!mm&&h!='admin'&&$('v-home').contains(t))t.scrollIntoView();else scrollTo(0,0)}
+$('q').oninput=e=>{const v=e.target.value.trim().toLowerCase(),s=$('sd');if(!v){s.hidden=true;return}
+const r=ix.filter(i=>(D[i].t+D[i].g+D[i].l).toLowerCase().includes(v)).slice(0,5);s.hidden=false;
+s.innerHTML=r.length?r.map(i=>`<a href="#movie-${D[i].id}" onclick="$('q').value='';$('sd').hidden=true"><div class="mini">${art(D[i])}</div><span><b>${D[i].t}</b><small>${D[i].y} · ${D[i].l} · ${D[i].g}</small></span></a>`).join(''):'<p class="no">No matches found</p>'};
+function paint(){ix=D.map((_,i)=>i);G=[...new Set(D.map(m=>m.g))];HF=[...ix].sort((a,b)=>D[b].r-D[a].r).slice(0,3);
+$('tr').innerHTML=[...ix].sort((a,b)=>D[b].r-D[a].r).slice(0,8).map((i,n)=>card(i,n)).join('');
+$('nw').innerHTML=[...ix].sort((a,b)=>D[b].y-D[a].y).slice(0,6).map(i=>card(i)).join('');
+$('gg').innerHTML=G.map((g,k)=>`<button class="gt" style="background:linear-gradient(135deg,hsl(${k*40+200} 80% 86%),hsl(${k*40+250} 75% 78%))" onclick="flt('${g}');location.hash=='#popular'?route():location.hash='popular'"><b>${g}</b><span>${D.filter(m=>m.g==g).length} film${D.filter(m=>m.g==g).length>1?'s':''}</span></button>`).join('');
+$('stats').innerHTML=[["Total Movies",REAL.length,"in your library"],["Genres",new Set(REAL.map(m=>m.g)).size,"categories"],["Languages",new Set(REAL.map(m=>m.l)).size,"available"],["Newest Release",Math.max(0,...REAL.map(m=>m.y))||"—","year"]].map(s=>`<div class="st glass gb"><small>${s[0]}</small><b>${s[1]}</b><em>${s[2]}</em><div class="sp">${[4,7,5,9,6,10,8].map(h=>`<i style="height:${h*4}px"></i>`).join('')}</div></div>`).join('');
+$('tb').innerHTML=REAL.length?REAL.map(m=>`<tr><td><div class="tn"><div class="mini">${art({...m,p:pu(m)})}</div>${m.t}</div><td>${m.g}<td>${m.l}<td>${m.y}<td><span class="chip ok">Published</span><td><button class="ic" onclick="edit(${m.id})">Edit</button><button class="ic dl" onclick="del(${m.id})">Delete</button></tr>`).join(''):'<tr><td colspan="6" style="padding:24px;color:var(--mu)">No movies yet — add your first movie above.</tr>';
+hero(0);pop()}
+const dz=$('dz'),pf=$('pf'),rd=f=>{if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,600/im.width,900/im.height),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);PD=c.toDataURL('image/jpeg',.82);dz.style.background=`url(${PD}) center/cover`;$('dzi').hidden=true};im.src=r.result};r.readAsDataURL(f)};
+dz.onclick=()=>pf.click();pf.onchange=()=>rd(pf.files[0]);dz.ondragover=e=>{e.preventDefault();dz.classList.add('ov2')};dz.ondragleave=()=>dz.classList.remove('ov2');dz.ondrop=e=>{e.preventDefault();dz.classList.remove('ov2');rd(e.dataTransfer.files[0])};
+$('yu').oninput=e=>{const v=e.target.value.trim();let t='';try{if(v){const u=new URL(/^https?:\/\//i.test(v)?v:'https://'+v),h=u.hostname.replace(/^www\./,'');if(h.includes('.'))t='✓ '+(/youtu(\.be|be\.com)$/.test(h)?'YouTube':h.includes('vimeo')?'Vimeo':h.includes('drive.google')?'Drive':/\.(mp4|webm|m3u8|mkv)$/i.test(u.pathname)?'Video file':'Link')}}catch(x){}$('yk').textContent=t};
+let A=false,TOK='',REAL=[],PD=null,EID=null;try{TOK=localStorage.getItem('lt')||'';A=!!TOK}catch(e){}
+const pu=m=>m.pv?`/api/poster?id=${m.id}&v=${m.pv}`:'';
+async function api(p,o={}){const r=await fetch('/api/'+p,{...o,headers:{'content-type':'application/json',...(TOK?{authorization:'Bearer '+TOK}:{})}});const j=await r.json().catch(()=>({}));if(r.status==401&&TOK&&p!='login')lock();if(!r.ok)throw new Error(j.error||'Server error');return j}
+async function load(){try{REAL=await api('movies')}catch(e){REAL=[]}D=REAL.length?REAL.map(m=>({...m,p:pu(m)})):SEED;paint();if(/^#movie-/.test(location.hash))route()}
+async function unlock(){try{const j=await api('login',{method:'POST',body:JSON.stringify({password:$('pw').value})});TOK=j.token;A=true;try{localStorage.setItem('lt',TOK)}catch(e){}$('pw').value='';$('le').textContent='';route()}catch(e){$('le').textContent=e.message=='Wrong password'?'Wrong password — try again':'Server not reachable — deploy with Netlify Functions first';$('lc').classList.add('sk');setTimeout(()=>$('lc').classList.remove('sk'),400)}}
+function lock(){A=false;TOK='';try{localStorage.removeItem('lt')}catch(e){}if(location.hash=='#home')route();else location.hash='home'}
+function clr(){EID=null;PD=null;['ft','fy','fx','yu','fr','fdu'].forEach(i=>$(i).value='');$('yk').textContent='';dz.style.background='';$('dzi').hidden=false;$('sv').textContent='Save Movie'}
+async function save(){const t=$('ft').value.trim();if(!t){toast('Title is required');return}$('sv').textContent='Saving…';
+try{await api('movies',{method:'POST',body:JSON.stringify({id:EID,t,y:$('fy').value,l:$('fl').value,g:$('gs').value,s:$('fx').value,v:$('yu').value.trim(),r:$('fr').value,d:$('fdu').value,poster:PD})});toast('Saved ✓');clr();await load()}catch(e){toast(e.message)}$('sv').textContent='Save Movie'}
+function edit(id){const m=REAL.find(x=>x.id==id);if(!m)return;EID=m.id;PD=null;$('ft').value=m.t;$('fy').value=m.y||'';$('fl').value=m.l;$('gs').value=m.g;$('fx').value=m.s||'';$('yu').value=m.v||'';$('fr').value=m.r||'';$('fdu').value=m.d||'';$('yu').dispatchEvent(new Event('input'));if(m.pv){dz.style.background=`url(${pu(m)}) center/cover`;$('dzi').hidden=true}$('sv').textContent='Update Movie';$('add').scrollIntoView();toast('Editing “'+m.t+'”')}
+async function del(id){if(!confirm('Delete this movie?'))return;try{await api('movies?id='+id,{method:'DELETE'});toast('Deleted');await load()}catch(e){toast(e.message)}}
+$('pw').onkeydown=e=>{if(e.key=='Enter')unlock()};$('pl').onclick=e=>{if(e.target.id=='pl')stopv()};
+addEventListener('hashchange',route);paint();route();load();
+</script></body></html>
